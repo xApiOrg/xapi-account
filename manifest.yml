@@ -1,0 +1,5 @@
+---
+applications:
+- name: xapi-account
+  instances: 1
+  path: /target/xapi-account-0.0.1-SNAPSHOT.jar
