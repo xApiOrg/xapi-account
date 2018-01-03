@@ -31,7 +31,7 @@ import org.springframework.web.context.WebApplicationContext;
 // https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest // http://www.baeldung.com/spring-boot-testing
 @AutoConfigureMockMvc
 public class AccountControllerTest {
 	private MockMvc mockMvc;
