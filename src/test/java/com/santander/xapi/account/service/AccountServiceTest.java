@@ -32,31 +32,25 @@ public class AccountServiceTest {
 	
 	@InjectMocks private AccountServiceImpl accountService;
 
+	//"[{\"id\": 1},{\"id\": 2},{\"id\": 3},{\"id\": 4}]"
 	@SuppressWarnings("serial")
-	public static final Map<Long, String> ACCOUNTS_1 =  new HashMap<Long, String>(){{ 
-		put( 1L, "1"); put( 2L, "2"); }};
+	public static final Map<Long, Object> ACCOUNTS_1 =  new HashMap<Long, Object>(){{ 
+		put( 1L, new HashMap<Object, Object>(){{ put( "id", "1"); put( "userId", "1"); }}); 
+		put( 2L, new HashMap<Object, Object>(){{ put( "id", "2"); put( "userId", "1"); }} ); }};
 		
 	@SuppressWarnings("serial")
-	public static final Map<Long, String> ACCOUNTS_2 =  new HashMap<Long, String>() {{ 
-		put( 3L, "3"); put( 4L, "4"); }};
+	public static final Map<Long, Object> ACCOUNTS_2 =  new HashMap<Long, Object>() {{ 
+		put( 3L, new HashMap<Object, Object>(){{ put( "id", "3"); put( "userId", "2"); }}); 
+		put( 4L, new HashMap<Object, Object>(){{ put( "id", "4"); put( "userId", "2"); }}); }};
 		
 	@SuppressWarnings("serial")
-	public static final Map<Long, Map<Long, String>> USER_ACCOUNTS =  new HashMap<Long, Map<Long, String>>() {{ 
+	public static final Map<Long, Map<Long, Object>> USER_ACCOUNTS =  new HashMap<Long, Map<Long, Object>>() {{ 
 		put(1L, ACCOUNTS_1); put(2L, ACCOUNTS_2); }};
 	
 	private static String URI = "http://ec2-52-56-203-3.eu-west-2.compute.amazonaws.com/ipay/account/";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-//		URI = accountConfig.getProtocol() + accountConfig.getDomain() + accountConfig.getPath();
-//		ACCOUNTS_1.put( 1L, "1");
-//		ACCOUNTS_1.put( 2L, "2");
-		
-//		ACCOUNTS_2.put( 3L, "3");
-//		ACCOUNTS_2.put( 4L, "4");
-
-//		USER_ACCOUNTS.put(1L, ACCOUNTS_1);
-//		USER_ACCOUNTS.put(2L, ACCOUNTS_2);
 	}
 
 	@AfterClass
