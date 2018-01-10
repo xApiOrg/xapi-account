@@ -33,6 +33,8 @@ public class XapiAccountApplication {
 	spring.cloud.config.server.git.uri=https://github.com/xApiOrg/config-repo/blob/master/xapi-account.yml
 	
 	https://docs.pivotal.io/spring-cloud-services/1-3/common/config-server/
+	
+	cf update-service xapi-account-config-server -c '{ "git": { "uri": "https://github.com/xApiOrg/config-repo", "label": "master" } }'
 
 3. 
 
