@@ -1,5 +1,5 @@
-instanceName="ipayService"
-copyFile="/tmp/ipay.sh"
+instanceName="xapiAccount"
+copyFile="/tmp/xapi.sh"
 fileName="$(basename "$0")"
 qualifiedPath="$(dirname "$(readlink -f "$0")")/$fileName"
 
@@ -12,9 +12,9 @@ function killInstance {
     fi
 }
 function runInstance {
-    echo "[INFO] Running instance" >> /tmp/ipay.instance.log
-    exec -a "$instanceName" java -jar ./target/@project.build.finalName@.jar 1>> /tmp/ipay.instance.log 2>> /tmp/ipay.instance.log &
-    echo "[OK] Async process launched" >> /tmp/ipay.instance.log
+    echo "[INFO] Running instance" >> /tmp/xapi.instance.log
+    exec -a "$instanceName" java -jar ./target/@project.build.finalName@.jar 1>> /tmp/xapi.instance.log 2>> /tmp/xapi.instance.log &
+    echo "[OK] Async process launched" >> /tmp/xapi.instance.log
 }
 
 if [[ "$qualifiedPath" != "$copyFile" ]]
