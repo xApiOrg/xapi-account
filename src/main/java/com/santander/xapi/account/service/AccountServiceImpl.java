@@ -23,30 +23,30 @@ public class AccountServiceImpl implements AccountService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	@HystrixCommand(fallbackMethod="getAllPayableAccountsFallback")
+//	@HystrixCommand(fallbackMethod="getAllPayableAccountsFallback")
 	public Set<Object> getAllPayableAccounts(Long userId) {
 		String uri = accountConfig.getProtocol() + accountConfig.getDomain() + accountConfig.getPath();
 		Set<Object> response = restTemplate.getForObject( uri + userId, Set.class );
 		return response;
 	}
 	
-	@HystrixCommand
-	private Set<Object> getAllPayableAccountsFallback(Long userId) {
-		return new HashSet<>();
-	}	
+//	@HystrixCommand
+//	private Set<Object> getAllPayableAccountsFallback(Long userId) {
+//		return new HashSet<>();
+//	}	
 
 	@Override
-	@HystrixCommand(fallbackMethod="getUserAccountByIdFallback")
+//	@HystrixCommand(fallbackMethod="getUserAccountByIdFallback")
 	public Object getUserAccountById(Long userId, Long id) {
 		String uri = accountConfig.getProtocol() + accountConfig.getDomain() + accountConfig.getPath();
 		Object response = restTemplate.getForObject( uri + userId + "/" + id, Object.class );
 		return response;
 	}
 	
-	@HystrixCommand
-	private Object getUserAccountByIdFallback(Long userId, Long id) {
-		return new Object();
-	}	
+//	@HystrixCommand
+//	private Object getUserAccountByIdFallback(Long userId, Long id) {
+//		return new Object();
+//	}	
 	
 	@Primary
 	@Bean(name="restTemplateBean")
