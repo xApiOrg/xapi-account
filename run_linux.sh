@@ -13,7 +13,7 @@ function killInstance {
 }
 function runInstance {
     echo "[INFO] Running instance" >> /tmp/xapi.instance.log
-    exec -a "$instanceName" java -jar ./target/@project.build.finalName@.jar 1>> /tmp/xapi.instance.log 2>> /tmp/xapi.instance.log &
+    exec -a "$instanceName" java -jar ./target/xapi-account-0.0.1-SNAPSHOT.jar 1>> /tmp/xapi.instance.log 2>> /tmp/xapi.instance.log &
     echo "[OK] Async process launched" >> /tmp/xapi.instance.log
 }
 
